@@ -1,21 +1,25 @@
-// Global configuration file
+// Global configuration
 
 const CONFIG = {
     appName: "Training Cards App",
     version: "1.0.0",
 
-    // Example: API base URL (future use)
-    apiBaseUrl: "https://api.example.com",
+    // ✅ Supabase Configuration
+    supabase: {
+        url: "https://ivtnajqtwqxtfocprpwn.supabase.co",
+        publishableKey: "sb_publishable_Z619_GGDp6F1wnz8Mo7SvAoujM1umh"
+    },
 
-    // Feature toggles
-    enableCardAlerts: true,
-
-    // Messages used across the app
-    messages: {
-        cardClick: "You clicked on",
-        welcome: "Welcome to the Training App"
-    }
+    // Feature flags
+    enableCardAlerts: true
 };
 
-// Make it available globally
+// ✅ Create Supabase client globally
+const supabaseClient = supabase.createClient(
+    CONFIG.supabase.url,
+    CONFIG.supabase.publishableKey
+);
+
+// Make globally accessible
 window.CONFIG = CONFIG;
+window.supabaseClient = supabaseClient;
