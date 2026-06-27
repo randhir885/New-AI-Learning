@@ -1,82 +1,65 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Cards</title>
 
-    const supabaseUrl =
-        "https://ivtnajqtwqxtfocprpwn.supabase.co";
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-    const supabaseKey =
-        "sb_publishable_Z619_GGDp6F1wnz8Mo7SvA_oujM1umh";
+<body>
 
-    const supabaseClient = supabase.createClient(
-        supabaseUrl,
-        supabaseKey
-    );
+    <!-- HEADER -->
+    <header class="header">
+        <h1 class="logo">My Training Cards</h1>
 
-    async function loadTrainingData() {
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-        const { data, error } = await supabaseClient
-            .from('trainingdata')
-            .select('*')
-            .order('id', { ascending: true });
+    <!-- MAIN CONTENT -->
+    <main class="container">
 
-        const container =
-            document.getElementById('training-list');
+        <h2 class="section-title">Available Trainings</h2>
 
-        if (error) {
+        <section class="card-container">
 
-            console.error(error);
+            <div class="card" data-topic="HTML">
+                <h3>HTML</h3>
+                <p>Learn the structure of web pages.</p>
+                <button>Explore</button>
+            </div>
 
-            container.innerHTML = `
-                <div class="card">
-                    <h3>Error Loading Data</h3>
-                    <p>${error.message}</p>
-                </div>
-            `;
+            <div class="card" data-topic="CSS">
+                <h3>CSS</h3>
+                <p>Style your website beautifully.</p>
+                <button>Explore</button>
+            </div>
 
-            return;
-        }
+            <div class="card" data-topic="JavaScript">
+                <h3>JavaScript</h3>
+                <p>Add interactivity to your site.</p>
+                <button>Explore</button>
+            </div>
 
-        if (!data || data.length === 0) {
+        </section>
 
-            container.innerHTML = `
-                <div class="card">
-                    <h3>No Training Data Found</h3>
-                    <p>The table is empty.</p>
-                </div>
-            `;
+    </main>
 
-            return;
-        }
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 My Website</p>
+    </footer>
 
-        container.innerHTML = '';
+    <!-- JS FILES -->
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
 
-        data.forEach(item => {
-
-            container.innerHTML += `
-                <div class="card">
-
-                    <h3>${item.title}</h3>
-
-                    <p>${item.desc || ''}</p>
-
-                    <div class="tech">
-                        ${item.tech || ''}
-                    </div>
-
-                    <br>
-
-                    <a
-                        class="btn"
-                        href="${item.link}"
-                        target="_blank"
-                    >
-                        Open Training
-                    </a>
-
-                </div>
-            `;
-        });
-    }
-
-    loadTrainingData();
-
-</script>
+</body>
+</html>
+``
