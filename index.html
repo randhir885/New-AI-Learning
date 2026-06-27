@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,9 @@
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -22,16 +26,15 @@
         </nav>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN -->
     <main class="container">
-
         <h2 class="section-title">Available Trainings</h2>
 
         <section class="card-container">
 
             <div class="card" data-topic="HTML">
                 <h3>HTML</h3>
-                <p>Learn the structure of web pages.</p>
+                <p>Learn structure of web pages.</p>
                 <button>Explore</button>
             </div>
 
@@ -48,7 +51,6 @@
             </div>
 
         </section>
-
     </main>
 
     <!-- FOOTER -->
@@ -56,10 +58,11 @@
         <p>© 2026 My Website</p>
     </footer>
 
-    <!-- JS FILES -->
+    <!-- CONFIG (must come before script.js) -->
     <script src="js/config.js"></script>
+
+    <!-- MAIN SCRIPT -->
     <script src="js/script.js"></script>
 
 </body>
 </html>
-``
