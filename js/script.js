@@ -1,7 +1,7 @@
-console.log("Website Loaded Successfully");
+document.addEventListener("DOMContentLoaded", async () => {
 
-document.addEventListener("DOMContentLoaded", function () {
+    console.log("Website Loaded");
 
-    console.log("DOM Ready");
+    console.log("Supabase Client:", supabase);
 
 });
